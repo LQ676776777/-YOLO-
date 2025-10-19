@@ -1,0 +1,27 @@
+python -c "import torch; print(torch.version.cuda); print(torch.cuda.is_available())"
+
+ssh -p 11662 root@connect.bjb1.seetacloud.com
+
+scp -P 11662 -r "C:\Users\liuqi\Desktop\SWS3009Assg" root@connect.bjb1.seetacloud.com:/root/autodl-tmp/
+
+pip install torch==2.3.1 torchvision==0.18.1 torchaudio==2.3.1 --index-url https://download.pytorch.org/whl/cu121
+
+pip install "numpy<2,>=1.26.0" opencv-python==4.8.1.78 ultralytics thop tensorboard pandas matplotlib scipy seaborn pyyaml tqdm psutil
+
+yolo detect train model=yolo11m.pt data="/root/autodl-tmp/SWS3009Assg/datasets/kaggle_garbage6/data.yaml" epochs=60 imgsz=640 batch=32 device=0 workers=4 cache=ram pin_memory=False
+
+C:/baidunetdiskdownload/20250617/webfg400_test_A
+
+scp -P 57935 -r /C:/baidunetdiskdownload/20250617/webinat5000 root@connect.bjb1.seetacloud.com:/root/autodl-tmp/xu/web-fgvc/data
+
+rsync -avz --exclude 'data/' root@connect.bjb1.seetacloud.com:/root/autodl-tmp/xu/web-fgvc ./web-fgvc
+
+scp -P 57935 root@connect.bjb1.seetacloud.com:/root/autodl-tmp/xu/web-fgvc.tar.gz .
+
+scp -P 11662 -r /C:/Users/liuqi/Desktop/SWS3009Assg/datasets/kaggle_garbage6 root@connect.bjb1.seetacloud.com:/root/autodl-tmp/SWS3009Assg/datasets
+
+scp -P 10646 -r /C:/Users/liuqi/Desktop/archive.zip root@connect.bjb1.seetacloud.com:/root/autodl-tmp/SWS3009Assg/datasets/dataset_for_posedetection
+
+
+
+
